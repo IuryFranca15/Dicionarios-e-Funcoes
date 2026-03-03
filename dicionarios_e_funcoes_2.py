@@ -33,11 +33,11 @@ albuns = {
 }
 
 #pesquisar albuns por genero
-def filtra_genero(albuns, genero_pesquisado):
-    lista = []
+def filtra_genero(albuns, genero_pesquisado): #passa o dicionario e a var pesquisada
+    lista = [] #cria uma lista pra armazenar os titulos
     for album in albuns.values():
-        if album["genero"].lower() == genero_pesquisado:
-            lista.append(album["titulo"])
+        if album["genero"].lower() == genero_pesquisado: #se o genero corresponder
+            lista.append(album["titulo"]) #adiciona o titulo na lista
     if lista:
         return lista
     else:
