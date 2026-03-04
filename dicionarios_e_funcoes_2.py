@@ -59,13 +59,14 @@ pesquisa = filtra_genero(albuns, genero_pesquisado)
 
 #imprimindo
 print(f"genero escolhido: {genero_pesquisado}")
-
+#para cada titulo do genero pesquisado, imprime o nome
 for nome in pesquisa:
     print(f"título: {nome}")
 
-#imprimindo
 filtro_ano = filtra_ano(albuns, ano = 2000)
+#imprimindo
 print("imprimindo os titulos depois de 2000")
+#para cada titulo depois dos anos 2000, imprime o nome
 for nome in filtro_ano:
     print(f"titulo: {nome}")
 
