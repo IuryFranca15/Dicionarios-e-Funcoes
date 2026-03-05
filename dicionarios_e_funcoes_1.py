@@ -1,4 +1,6 @@
-
+#Regra:
+#Usar chaves ["nome"] quando você sabe exatamente onde o dado está (mais seguro e comum)
+#usar .values() quando você quer processar todos os itens sem precisar saber o nome de cada um
 
 skate_pecas = {
     "shape": 250.00,
