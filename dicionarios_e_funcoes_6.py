@@ -22,6 +22,17 @@ def soma_precos(setup):
     return soma
 
 soma = soma_precos(setup)
-print(f"Total deu R$: {soma}")
+print(f"Total R$: {soma}")
 
 #verifica se ta no estoque
+def verifica_estoque(setup):
+    lista_faltando = []
+    #aqui o pulo do gato para adicionar identificar a chave e adicionar numa lista
+    for chave, conteudo in setup.items():
+        if conteudo["em_estoque"] == False:
+            lista_faltando.append(chave)
+    return lista_faltando
+
+faltando = verifica_estoque(setup)
+for falta in faltando:
+    print(f"itens faltando: {falta}")
