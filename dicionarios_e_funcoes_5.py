@@ -9,7 +9,7 @@ skateshop = {
 def verificar_estoque(skateshop, limite):
     lista_reposicao = [] #lista para os itens
     for peca in skateshop.values():
-        if peca["quantidade"] < limite: #se a quantidade for menor que o limite
+        if peca.get("quantidade", 0) < limite: #se a quantidade for menor que o limite testado com o .get()
             lista_reposicao.append(peca) #coloque a peca todinha na lista
     return lista_reposicao
 
