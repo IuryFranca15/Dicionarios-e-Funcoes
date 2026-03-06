@@ -1,62 +1,20 @@
-loja_tech = {
-    "unidade": "João Pessoa - PB",
-    "status_aberto": True,
-    "inventario": {
-        "setor_audio": [
-            {"id": 101, "nome": "Fone Bluetooth Noise Cancelling", "preco": 850.00, "estoque": 15},
-            {"id": 102, "nome": "Caixa de Som à prova d'água", "preco": 420.00, "estoque": 8}
-        ],
-        "setor_informatica": {
-            "perifericos": [
-                {"item": "Teclado Mecânico RGB", "marca": "Keychron", "configuracao": "ABNT2"},
-                {"item": "Mouse Gamer", "marca": "Logitech", "dpi_max": 16000}
-            ],
-            "hardwares": {
-                "processadores": ["Intel i7", "AMD Ryzen 5", "Apple M3"],
-                "gpu": "NVIDIA RTX 4060"
-            }
-        }
-    ,
-    "ultimas_vendas": [
-        {"data": "2026-03-05", "cliente": "Iury", "total": 1200.50},
-        {"data": "2026-03-04", "cliente": "Nathalia", "total": 450.00}
-    ]
-    }
+catalogo = {
+    "filme_01": {"titulo": "O Labirinto do Fauno", "diretor": "Guillermo del Toro", "nota": 9.2},
+    "filme_02": {"titulo": "Interestelar", "diretor": "Christopher Nolan", "nota": 8.7},
+    "filme_03": {"titulo": "Blade Runner 2049", "diretor": "Denis Villeneuve"},  # CUIDADO: Sem nota!
+    "filme_04": {"titulo": "A Forma da Água", "diretor": "Guillermo del Toro", "nota": 7.3},
+    "filme_05": {"titulo": "Filme Misterioso"} # CUIDADO: Sem nota e sem diretor!
 }
 
-#somando os valores de setor audio
-def soma (loja_tech):
-    soma = 0
-    #tem que caminhar até onde está os valores desejados
-    for produto in loja_tech["inventario"]["setor_audio"]:
-        soma += produto["preco"]
-    return soma
+#pegando os filmes de nota 8 ou mais
+def nota_8(catalogo, nota):
+    lista = []
+    for filme in catalogo.values():
+        if filme.get("nota", 0) > nota:
+            lista.append(filme)
+    return lista
 
-def informatica(loja_tech):
-    for produto in loja_tech["inventario"]["setor_informatica"]["perifericos"]:
-        print(produto["item"])
-
-def ultimas_vendas(loja_tech):
-    soma = 0
-    for produto in loja_tech["inventario"]["ultimas_vendas"]:
-        soma += produto["total"]
-    return soma
-
-#acessando o segundo item do setor audio
-segundo = loja_tech["inventario"]["setor_audio"][1]["nome"]
-print(segundo)
-print("======================")
-
-total = soma(loja_tech)
-print(f"total deu R$: {total}")
-
-print("==========================")
-
-#imprimindo os itens do setor de informatica
-setor_informatica = informatica(loja_tech)
-print(setor_informatica)
-
-print("==========================")
-#imprimindo o total das ultimas vendas
-vendas = ultimas_vendas(loja_tech)
-print(f"Total das ultimas vendas: R$ {vendas}")
+#imprimindo
+acima_8 = nota_8(catalogo, 8)
+for filme in acima_8:
+    print(f"Filme {filme['titulo']} tem nota {filme['nota']}")
