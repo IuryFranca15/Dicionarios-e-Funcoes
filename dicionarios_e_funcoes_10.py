@@ -27,7 +27,7 @@ def dados(biblioteca_streaming):
     return usuario, assinatura, recomendados_hoje
 
 dados = dados(biblioteca_streaming)
-for dado in dados.items():
+for dado in dados:
     print(f"{dado}")
 
 
